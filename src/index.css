@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* The Invisible Canvas System Variables */
+  --surface: #f9f9fb;
+  --surface-container-low: #f3f3f5;
+  --surface-container: #eeeef0;
+  --surface-container-high: #e8e8ea;
+  --surface-container-highest: #e2e2e4;
+  --surface-container-lowest: #ffffff;
+  --surface-bright: #f9f9fb;
+  
+  --primary: #0058bc;
+  --primary-container: #0070eb;
+  --on-primary: #ffffff;
+  --on-primary-fixed-variant: #004493;
+  --tertiary: #9e3d00;
+  
+  --on-surface: #1a1c1d;
+  --on-surface-variant: #414755;
+  
+  --outline: #717786;
+  --outline-variant: #c1c6d7;
+
+  /* Custom App Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--surface);
+  color: var(--on-surface);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Navigation */
+.app-header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(193, 198, 215, 0.1);
+}
+
+/* Typography Editorial Authority */
+h1, h2, h3, h4 {
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--on-surface);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--on-surface-variant);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.label-md {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--tertiary);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+  border: none;
+  font-family: var(--font-sans);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  color: var(--on-primary);
+  box-shadow: 0 12px 24px -6px rgba(0, 88, 188, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(0, 88, 188, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-secondary {
+  background-color: var(--surface-container-high);
+  color: var(--on-surface);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-container-highest);
+  transform: translateY(-2px);
+}
+
+/* The Invisible Canvas Structure */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 24px 120px;
+}
+
+.surface-card {
+  position: relative;
+  background-color: var(--surface-container-low);
+  border-radius: 3rem;
+  padding: 60px;
+  margin-bottom: 48px;
+  transition: all 0.5s ease;
+}
+
+.surface-card-inner {
+  background-color: var(--surface-container-lowest);
+  border-radius: 2rem;
+  padding: 32px;
+  box-shadow: 0 30px 60px -12px rgba(26, 28, 29, 0.03);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.surface-card-inner:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 40px 80px -15px rgba(26, 28, 29, 0.08); /* Signature Soft Lift */
+}
+
+.grid {
+  display: grid;
+  gap: 40px;
+}
+
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) {
+  .grid-cols-2, .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Input Fields */
+input[type="number"], input[type="text"] {
+  background-color: transparent;
+  border: none;
+  color: var(--on-surface);
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-weight: 900;
+  outline: none;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 12px 12px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--outline);
+}
+
+/* Highlights */
+.highlight-success { 
+  background-color: rgba(16, 185, 129, 0.08); 
+  color: #059669; 
+  border-radius: 12px; 
+}
+.highlight-warning { 
+  background-color: rgba(245, 158, 11, 0.08); 
+  color: #d97706; 
+  border-radius: 12px; 
+}
+.highlight-danger { 
+  background-color: rgba(239, 68, 68, 0.08); 
+  color: #dc2626; 
+  border-radius: 12px; 
+}
+
+/* Contextual info blocks */
+.info-block {
+  background-color: var(--surface-container-lowest);
+  border-radius: 2rem;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(26, 28, 29, 0.02);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-container-highest);
+  border: 3px solid var(--surface);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--outline-variant);
+}
+
+/* -----------------------------
+   Print / PDF Export Styles
+------------------------------ */
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: A4 portrait;
+  }
+  
+  body {
+    background-color: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .app-header-container {
+    position: relative !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid #000 !important;
+    padding-bottom: 20px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Structural Cleanups */
+  .surface-card, .info-block, .surface-card-inner {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    box-shadow: none !important;
+    transform: none !important;
+    border: 1px solid var(--surface-container-highest) !important;
+  }
+
+  .surface-card {
+    padding: 30px !important;
+    margin-bottom: 30px !important;
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  /* Prevent the very first container card from forcing a blank front page */
+  .container > section:first-of-type,
+  .container > .surface-card:first-of-type {
+    page-break-before: auto !important;
+    break-before: auto !important;
+  }
+
+  /* Disable flex/grid setups that break pagination algorithms */
+  .grid, .grid-cols-2, .grid-cols-3 {
+    display: block !important;
+  }
+
+  /* Expand scrolling areas for PDF */
+  div, section {
+    overflow: visible !important;
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+    max-height: none !important;
+  }
+
+  /* Hide interactive buttons */
+  button, .btn {
+    display: none !important;
+  }
+  
+  /* Text adjustments to ensure readability */
+  h1, h2, h3, h4, p, span, div, td, th {
+    color: black !important;
+  }
+  
+  .highlight-success { background-color: rgba(16, 185, 129, 0.2) !important; }
+  .highlight-warning { background-color: rgba(245, 158, 11, 0.2) !important; }
+  .highlight-danger { background-color: rgba(239, 68, 68, 0.2) !important; }
+  
+  .label-md {
+    color: #444 !important;
+  }
+}
